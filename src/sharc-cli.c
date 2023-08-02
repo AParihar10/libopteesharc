@@ -72,7 +72,7 @@ cleanup_mem:
 
 int main(int argc, char **argv) {
 	struct adi_optee_sharc *sharc;
-	uint32_t id;
+	uint32_t id = 0;
 	enum action action = ACTION_NONE;
 	int opt;
 	const char *path = NULL;
@@ -103,12 +103,14 @@ int main(int argc, char **argv) {
 		}
 	}
 
-	if (optind >= argc) {
-		usage();
-		exit(1);
-	}
+	if (action != ACTION_VERIFY) {
+		if (optind >= argc) {
+			usage();
+			exit(1);
+		}
 
-	id = atoi(argv[optind]);
+		id = atoi(argv[optind]);
+	}
 
 	sharc = adi_optee_sharc_open();
 	if (!sharc) {
