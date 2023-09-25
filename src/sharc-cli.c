@@ -1,3 +1,7 @@
+/* SPDX-License-Identifier: BSD-3-Clause
+ *
+ * Copyright 2023, Analog Devices, Inc. All rights reserved.
+ */
 
 #include <stdio.h>
 #include <stdlib.h>
